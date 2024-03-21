@@ -7,8 +7,6 @@ import {
   MYSQL_USER,
 } from '../config.js';
 
-console.log(MYSQL_DATABASE, MYSQL_HOST, MYSQL_PASSWORD, MYSQL_PORT, MYSQL_USER);
-
 // Create the connection pool. The pool-specific settings are the defaults
 const db = mysql.createPool({
   host: MYSQL_HOST,
