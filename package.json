@@ -4,10 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon src/app.js",
-    "initDb": "src/db/initDB.js",
-    "build": "tsc build ",
-    "vercel-build": "echo hello"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "initDb": "src/db/initDB.js"
   },
   "keywords": [],
   "author": "",
@@ -20,10 +19,10 @@
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
     "mysql2": "^3.9.2",
-    "nodemon": "^3.1.0",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "nodemon": "^3.1.0",
     "@rollup/rollup-linux-x64-gnu": "^4.9.2",
     "@types/bcrypt": "^5.0.2"
   },
