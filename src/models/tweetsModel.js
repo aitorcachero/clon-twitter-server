@@ -111,7 +111,6 @@ ORDER BY tweets.createdAt DESC;`,
        C.user_id,
        C.COMMENT,
        C.createdAt,
-       U.id,
        U.username,
        U.name,
        U.surname

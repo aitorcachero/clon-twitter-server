@@ -10,7 +10,7 @@ export default function usersController() {
     try {
       // Comprobamos si el usuario existe
       const getUserByName = await usersModel().getUserByUsername(username);
-      if (getUserByName.length > 0) {
+      if (getUserByName && getUserByName.length > 0) {
         res.send({
           status: 'error',
           message: 'Ya existe un usuario con ese username',
@@ -20,7 +20,7 @@ export default function usersController() {
 
       // Comprobamos si el email existe
       const getUserByEmail = await usersModel().getUserByEmail(email);
-      if (getUserByEmail.length > 0) {
+      if (getUserByName && getUserByEmail.length > 0) {
         res.send({
           status: 'error',
           message: 'Ya existe un usuario con ese correo electrónico',
@@ -115,8 +115,19 @@ export default function usersController() {
 
       const getTweets = await tweetsModel().getTweets(getUser.id);
 
-      res.status(200).send({ user: getUser, tweets: getTweets });
-    } catch (error) {}
+      const getFollowers = await usersModel().getFollowers(getUser.id);
+
+      const getFollowing = await usersModel().getFollows(getUser.id);
+
+      res.status(200).send({
+        user: getUser,
+        tweets: getTweets,
+        followers: getFollowers,
+        following: getFollowing,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const deleteUser = async (req, res) => {

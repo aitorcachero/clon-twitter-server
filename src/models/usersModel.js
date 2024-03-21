@@ -100,11 +100,37 @@ export default function usersModel() {
     }
   };
 
+  const getFollowers = async (id) => {
+    try {
+      const [followers] = await db.query(
+        `SELECT F.follower_id, U.username, U.name, U.surname, U.photo, U.description FROM followers F LEFT JOIN users U ON F.follower_id = U.id WHERE followed_id = ?`,
+        [id]
+      );
+      return followers;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getFollows = async (id) => {
+    try {
+      const [follows] = await db.query(
+        `SELECT F.followed_id, U.username, U.name, U.surname, U.photo, U.description FROM followers F LEFT JOIN users U ON F.followed_id = U.id WHERE follower_id = ?`,
+        [id]
+      );
+      return follows;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return {
     getUserById,
     getUserByUsername,
     getUserByEmail,
     createUser,
     deleteUser,
+    getFollowers,
+    getFollows,
   };
 }

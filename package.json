@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon src/app.js",
     "initDb": "src/db/initDB.js",
-    "build": "webpack",
+    "build": "tsc build ",
     "vercel-build": "echo hello"
   },
   "keywords": [],
@@ -25,9 +25,7 @@
   },
   "devDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.9.2",
-    "@types/bcrypt": "^5.0.2",
-    "webpack": "^5.90.3",
-    "webpack-cli": "^5.1.4"
+    "@types/bcrypt": "^5.0.2"
   },
   "description": ""
 }
