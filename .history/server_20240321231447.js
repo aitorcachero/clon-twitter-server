@@ -11,9 +11,9 @@ app.use(express.json());
 app.use(express.urlencoded());
 // app.use(cors());
 
-import usersRoutes from './routes/usersRoutes.js';
-import tweetsRoutes from './routes/tweetsRoutes.js';
-import followRoutes from './routes/followersRoutes.js';
+// import usersRoutes from './routes/usersRoutes.js';
+// import tweetsRoutes from './routes/tweetsRoutes.js';
+// import followRoutes from './routes/followersRoutes.js';
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -35,7 +35,7 @@ router.post('/webhook-2', (req, res) => {
   res.send('Webhook 2 successfully received.');
 });
 
-// Mount the router middleware
+Mount the router middleware
 app.use('/users', usersRoutes);
 app.use('/tweets', tweetsRoutes);
 app.use('/follow', followRoutes);
